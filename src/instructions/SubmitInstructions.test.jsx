@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import { Factory } from 'rosie';
 import { fireEvent } from '@testing-library/dom';
-import { render, screen, act, initializeMockApp, initializeTestStore } from '../setupTest';
+import {
+  render, screen, act, initializeMockApp, initializeTestStore,
+} from '../setupTest';
 import SubmitExamInstructions from './SubmitInstructions';
 import { ExamType } from '../constants';
 import Emitter from '../data/emitter';
@@ -38,13 +39,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: 100 }
-      }
+        activeAttempt: { time_remaining_seconds: 100 },
+      },
     });
 
     const { rerender } = render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
     expect(screen.getByTestId('submit-proctored-exam-instructions')).toBeInTheDocument();
     expect(screen.getByTestId('footer-component')).toBeInTheDocument();
@@ -53,12 +54,12 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.TIMED },
-        activeAttempt: { time_remaining_seconds: 100 }
-      }
+        activeAttempt: { time_remaining_seconds: 100 },
+      },
     });
 
     rerender(
-      <SubmitExamInstructions />
+      <SubmitExamInstructions />,
     );
     expect(screen.getByTestId('submit-timed-exam-instructions')).toBeInTheDocument();
     expect(screen.queryByTestId('footer-component')).not.toBeInTheDocument();
@@ -70,13 +71,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: 100 }
-      }
+        activeAttempt: { time_remaining_seconds: 100 },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     const continueButton = screen.getByTestId('continue-exam-button');
@@ -94,13 +95,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: 0 }
-      }
+        activeAttempt: { time_remaining_seconds: 0 },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Verify that the continue button is not rendered
@@ -114,13 +115,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { } // time_remaining_seconds is undefined
-      }
+        activeAttempt: { }, // time_remaining_seconds is undefined
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Verify that the continue button is not rendered
@@ -134,13 +135,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: -10 }
-      }
+        activeAttempt: { time_remaining_seconds: -10 },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Verify that the continue button is not rendered
@@ -154,13 +155,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: null }
-      }
+        activeAttempt: { time_remaining_seconds: null },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Verify that the continue button is not rendered
@@ -173,13 +174,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         // exam is undefined
-        activeAttempt: { time_remaining_seconds: 100 }
-      }
+        activeAttempt: { time_remaining_seconds: 100 },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Since examType is undefined, it should default to the non-TIMED branch
@@ -199,13 +200,13 @@ describe('SubmitExamInstructions', () => {
     store.getState = () => ({
       specialExams: {
         exam: { type: ExamType.PROCTORED },
-        activeAttempt: { time_remaining_seconds: 100 }
-      }
+        activeAttempt: { time_remaining_seconds: 100 },
+      },
     });
 
     render(
       <SubmitExamInstructions />,
-      { store }
+      { store },
     );
 
     // Verify that the continue button is initially rendered
