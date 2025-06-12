@@ -1,6 +1,11 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import { render, screen, initializeMockApp, initializeTestStore } from '../setupTest';
+import {
+  render,
+  screen,
+  initializeMockApp,
+  initializeTestStore,
+} from '../setupTest';
 import ErrorExamInstructions from './ErrorInstructions';
 import { ExamType } from '../constants';
 import Footer from './proctored_exam/Footer';
@@ -30,19 +35,19 @@ describe('ErrorExamInstructions', () => {
     // Test for PROCTORED exam type
     const { rerender } = render(
       <ErrorExamInstructions examType={ExamType.PROCTORED} />,
-      { store }
+      { store },
     );
     expect(screen.getByText('Error Proctored Exam Instructions')).toBeInTheDocument();
 
     // Test for ONBOARDING exam type
     rerender(
-      <ErrorExamInstructions examType={ExamType.ONBOARDING} />
+      <ErrorExamInstructions examType={ExamType.ONBOARDING} />,
     );
     expect(screen.getByText('Error Onboarding Exam Instructions')).toBeInTheDocument();
 
     // Test for PRACTICE exam type
     rerender(
-      <ErrorExamInstructions examType={ExamType.PRACTICE} />
+      <ErrorExamInstructions examType={ExamType.PRACTICE} />,
     );
     expect(screen.getByText('Error Practice Exam Instructions')).toBeInTheDocument();
   });
@@ -50,7 +55,7 @@ describe('ErrorExamInstructions', () => {
   it('renders Footer component when examType is not TIMED', () => {
     render(
       <ErrorExamInstructions examType={ExamType.PROCTORED} />,
-      { store }
+      { store },
     );
 
     // Verify that the Footer component is rendered
@@ -63,7 +68,7 @@ describe('ErrorExamInstructions', () => {
   it('does not render Footer component when examType is TIMED', () => {
     render(
       <ErrorExamInstructions examType={ExamType.TIMED} />,
-      { store }
+      { store },
     );
 
     // Verify that the Footer component is not rendered
@@ -77,7 +82,7 @@ describe('ErrorExamInstructions', () => {
     // This test specifically targets line 20 in ErrorInstructions.jsx
     render(
       <ErrorExamInstructions examType="UNKNOWN_TYPE" />,
-      { store }
+      { store },
     );
 
     // Verify that no instruction components are rendered

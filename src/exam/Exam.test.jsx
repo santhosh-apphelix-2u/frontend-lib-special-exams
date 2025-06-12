@@ -149,7 +149,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -172,7 +172,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -195,7 +195,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -211,7 +211,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -233,7 +233,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -255,7 +255,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -279,7 +279,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -325,7 +325,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} isTimeLimited={false} />,
+      <Exam {...defaultProps} originalUserIsStaff isTimeLimited={false} />,
       { store },
     );
 
@@ -348,7 +348,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 
@@ -371,7 +371,7 @@ describe('Exam', () => {
     });
 
     const { queryByTestId } = render(
-      <Exam {...defaultProps} originalUserIsStaff={true} />,
+      <Exam {...defaultProps} originalUserIsStaff />,
       { store },
     );
 

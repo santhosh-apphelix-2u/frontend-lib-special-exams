@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import { render, screen, initializeMockApp, initializeTestStore } from '../setupTest';
+import {
+  render, screen, initializeMockApp, initializeTestStore,
+} from '../setupTest';
 import EntranceExamInstructions from './EntranceInstructions';
 import { ExamType } from '../constants';
 import Footer from './proctored_exam/Footer';
@@ -39,7 +41,7 @@ describe('EntranceExamInstructions', () => {
         examType={ExamType.PROCTORED}
         skipProctoredExam={skipProctoredExam}
       />,
-      { store }
+      { store },
     );
 
     // Verify that the Footer component is rendered
@@ -58,7 +60,7 @@ describe('EntranceExamInstructions', () => {
         examType={ExamType.TIMED}
         skipProctoredExam={skipProctoredExam}
       />,
-      { store }
+      { store },
     );
 
     // Verify that the TimedExamFooter component is rendered
@@ -78,7 +80,7 @@ describe('EntranceExamInstructions', () => {
         examType={ExamType.PROCTORED}
         skipProctoredExam={skipProctoredExam}
       />,
-      { store }
+      { store },
     );
     expect(screen.getByText('Entrance Proctored Exam Instructions')).toBeInTheDocument();
 
@@ -87,7 +89,7 @@ describe('EntranceExamInstructions', () => {
       <EntranceExamInstructions
         examType={ExamType.ONBOARDING}
         skipProctoredExam={skipProctoredExam}
-      />
+      />,
     );
     expect(screen.getByText('Entrance Onboarding Exam Instructions')).toBeInTheDocument();
 
@@ -96,7 +98,7 @@ describe('EntranceExamInstructions', () => {
       <EntranceExamInstructions
         examType={ExamType.PRACTICE}
         skipProctoredExam={skipProctoredExam}
-      />
+      />,
     );
     expect(screen.getByText('Entrance Practice Exam Instructions')).toBeInTheDocument();
 
@@ -105,7 +107,7 @@ describe('EntranceExamInstructions', () => {
       <EntranceExamInstructions
         examType={ExamType.TIMED}
         skipProctoredExam={skipProctoredExam}
-      />
+      />,
     );
     expect(screen.getByText('Start Timed Exam Instructions')).toBeInTheDocument();
   });
@@ -116,7 +118,7 @@ describe('EntranceExamInstructions', () => {
         examType="UNKNOWN_TYPE"
         skipProctoredExam={skipProctoredExam}
       />,
-      { store }
+      { store },
     );
 
     // The container should only have the Footer component
